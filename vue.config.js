@@ -1,2 +1,12 @@
 // vue.config.js
-module.exports = { publicPath: '<the-quote-machine>' };
+module.exports = {
+	css: {
+		loaderOptions: {
+			sass: {
+				data: `
+			  @import "@/scss/style.scss";
+			`,
+			},
+		},
+	},
+};

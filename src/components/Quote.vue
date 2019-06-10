@@ -1,15 +1,20 @@
 <template>
   <div id="quote-wrapper">
-    <h1>{{ quote.quote }}</h1>
-    <p>{{ quote.author }}</p>
+    <h1>{{ quotes[index].quote }}</h1>
+    <p>{{ quotes[index].author }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "Quote",
-  props: {
-    quote: Object
+  computed: {
+    quotes() {
+      return this.$store.state.quotes;
+    },
+    index() {
+      return this.$store.state.index;
+    }
   }
 };
 </script>
@@ -18,6 +23,7 @@ export default {
 <style scoped>
 h1 {
   font-size: calc(16px + 3vw);
+  margin: 0;
 }
 #quote-wrapper * {
   text-align: center;
